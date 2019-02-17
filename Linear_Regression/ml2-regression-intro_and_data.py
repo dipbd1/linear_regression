@@ -56,11 +56,11 @@ X = np.array(df.drop(['label'], 1))
 # Standerdising the data
 X = preprocessing.scale(X)
 # print(X)
-
+# Sliced array after limit which we will try to predict
+X_lately = X[-forecast_out:]
 # Slicig the array to a limit
 X = X[:-forecast_out]
-# Sliced arrat after limit which we will try to predict
-X_lately = X[-forecast_out:]
+
 
 df.dropna(inplace=True)  # again we are clearing row without Nan
 y = np.array(df['label'])  # the result table we want to test with
